@@ -49,7 +49,7 @@ This project will involve building a web crawler that can navigate web pages, ex
 
   - **Progress**
 
-'''python
+```python
 total_hours = 120
 w1_hours = 0
 w2_hours = 3
@@ -70,4 +70,4 @@ remaining_hours = total_hours - used_hours
 print(f"Total Hours: {total_hours}")
 print(f"Used Hours: {used_hours}")
 print(f"Remaining Hours: {remaining_hours}")
-'''
+```
