@@ -50,10 +50,7 @@ This project will involve building a web crawler that can navigate web pages, ex
   - **Progress**
 
 '''python
-# Total hours
 total_hours = 120
-
-# Weekly hours
 w1_hours = 0
 w2_hours = 3
 w3_hours = 0
@@ -69,8 +66,8 @@ w12_hours = 0
 w13_hours = 0
 w14_hours = 0
 
-# Calculate remaining hours
 used_hours = w1_hours + w2_hours+w3_hours+w4_hours+w5_hours+w6_hours+w7_hours+w8_hours+w9_hours+w10_hours+w11_hours+w12_hours+w13_hours+w14_hours
+
 remaining_hours = total_hours - used_hours
 
 print(f"Total Hours: {total_hours}")
