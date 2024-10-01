@@ -65,11 +65,8 @@ w11_hours = 0
 w12_hours = 0
 w13_hours = 0
 w14_hours = 0
-
-used_hours = w1_hours + w2_hours+w3_hours+w4_hours+w5_hours+w6_hours+w7_hours+w8_hours+w9_hours+w10_hours+w11_hours+w12_hours+w13_hours+w14_hours
-
+used_hours = (w1_hours + w2_hours+w3_hours+w4_hours+w5_hours+w6_hours+w7_hours+w8_hours+w9_hours+w10_hours+w11_hours+w12_hours+w13_hours+w14_hours)
 remaining_hours = total_hours - used_hours
-
 print(f"Total Hours: {total_hours}")
 print(f"Used Hours: {used_hours}")
 print(f"Remaining Hours: {remaining_hours}")
