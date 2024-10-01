@@ -47,27 +47,12 @@ This project will involve building a web crawler that can navigate web pages, ex
 - **Sprint 6: Final Presentation and Documentation** (12/9)  
   Prepare documentation and present the final project to stakeholders.
 
-  - **Progress**
 
-```python
-total_hours = 120
-w1_hours = 0
-w2_hours = 3
-w3_hours = 0
-w4_hours = 0
-w5_hours = 0
-w6_hours = 0
-w7_hours = 0
-w8_hours = 0
-w9_hours = 0
-w10_hours = 0
-w11_hours = 0
-w12_hours = 0
-w13_hours = 0
-w14_hours = 0
-used_hours = (w1_hours + w2_hours+w3_hours+w4_hours+w5_hours+w6_hours+w7_hours+w8_hours+w9_hours+w10_hours+w11_hours+w12_hours+w13_hours+w14_hours)
-remaining_hours = total_hours - used_hours
-print(f"Total Hours: {total_hours}")
-print(f"Used Hours: {used_hours}")
-print(f"Remaining Hours: {remaining_hours}")
-```
+## Progress
+**Total Hours:** 120
+
+- **W1:** 0
+- **W2:** 3
+
+### Remaining Hours
+Total Hours - Weekly Hours = 120 - (0 + 3) = **117 hours remaining**
