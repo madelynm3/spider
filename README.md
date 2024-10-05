@@ -55,4 +55,4 @@ This project will involve building a web crawler that can navigate web pages, ex
 - **W2:** 3
 
 ### Remaining Hours
-Total Hours - Weekly Hours = 120 - (0 + 3) = **117 hours remaining**
+**117 hours remaining**
