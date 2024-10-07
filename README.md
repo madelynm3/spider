@@ -22,16 +22,16 @@ This project will involve building a web scraper that navigates the specified we
 ## Dependencies
 - Installation of Python and necessary libraries (requests, Beautiful Soup, etc.)
 - Access to target websites for data extraction:
--- IMDb (Internet Movie Database): IMDb
--- Rotten Tomatoes: Rotten Tomatoes
--- Metacritic: Metacritic
--- Letterboxd: Letterboxd
--- FilmAffinity: FilmAffinity
--- The Guardian Film Section: The Guardian
--- RogerEbert.com: Roger Ebert
--- NPR Movies: NPR Movies
--- Collider: Collider
--- Screen Rant: Screen Rant
+  - IMDb (Internet Movie Database): IMDb
+  - Rotten Tomatoes: Rotten Tomatoes
+  - Metacritic: Metacritic
+  - Letterboxd: Letterboxd
+  - FilmAffinity: FilmAffinity
+  - The Guardian Film Section: The Guardian
+  - RogerEbert.com: Roger Ebert
+  - NPR Movies: NPR Movies
+  - Collider: Collider
+  - Screen Rant: Screen Rant
 
 
 ## Risks
