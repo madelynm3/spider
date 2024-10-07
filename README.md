@@ -5,10 +5,10 @@ Develop a web scraper designed to extract movie reviews from various websites. T
 
 ## Description
 This project will involve building a web scraper that navigates the specified websites, extracts movie review data, and stores it in formats such as CSV, JSON, or directly in a database. The project will utilize Beautiful Soup, a Python library tailored for parsing HTML and XML documents. 
-Key features:
-- Configurable data extraction based on user-defined parameters
-- Support for multiple output formats, including databases like SQLite or PostgreSQL.
-- Error handling for common web scraping issues (e.g., broken links, access restrictions)
+- Key features:
+  - Configurable data extraction based on user-defined parameters
+  - Support for multiple output formats, including databases like SQLite or PostgreSQL.
+  - Error handling for common web scraping issues (e.g., broken links, access restrictions)
 
 ## New Concepts
 - Advanced usage of Beautiful Soup for complex data parsing specific to movie reviews.
