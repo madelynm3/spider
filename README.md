@@ -1,17 +1,17 @@
 # spider
 
 ## Purpose
-The purpose of this project is to develop a web scraping tool using Beautiful Soup to extract and process data from various websites. This tool will enable me to gather raw data for research, analysis, and decision-making, addressing the need for efficient data collection in a digital environment.
+The purpose of this project is to develop a web scraper designed to extract movie reviews from sites like IMDb and Rotten Tomatoes. This tool will enable efficient data collection for research, analysis, and decision-making, addressing the need for comprehensive insights into film criticism.
 
 ## Description
-This project will involve building a web crawler that can navigate web pages, extract specific data elements, and store this data in various formats such as CSV, JSON, or directly into a database. I will utilize Beautiful Soup, a Python library specifically designed for parsing HTML and XML documents. Key features will include:
+This project will involve building a web scraper that navigates the specified websites, extracts movie review data, and stores it in formats such as CSV, JSON, or directly in a database. The project will utilize Beautiful Soup, a Python library tailored for parsing HTML and XML documents. Key features will include:
 - Configurable data extraction based on user-defined parameters
-- Support for multiple output formats
+- Support for multiple output formats, including databases like SQLite or PostgreSQL.
 - Error handling for common web scraping issues (e.g., broken links, access restrictions)
 
 ## New Concepts
-- Advanced usage of Beautiful Soup for complex data parsing
-- Techniques for handling and storing large datasets
+- Advanced usage of Beautiful Soup for complex data parsing specific to movie reviews.
+- Techniques for handling and storing large datasets of reviews.
 - Implementing web scraping ethics, including respect for `robots.txt` and rate limiting
 
 ## Resources
@@ -21,7 +21,18 @@ This project will involve building a web crawler that can navigate web pages, ex
 
 ## Dependencies
 - Installation of Python and necessary libraries (requests, Beautiful Soup, etc.)
-- Access to target websites for data extraction
+- Access to target websites for data extraction:
+-- IMDb (Internet Movie Database): IMDb
+-- Rotten Tomatoes: Rotten Tomatoes
+-- Metacritic: Metacritic
+-- Letterboxd: Letterboxd
+-- FilmAffinity: FilmAffinity
+-- The Guardian Film Section: The Guardian
+-- RogerEbert.com: Roger Ebert
+-- NPR Movies: NPR Movies
+-- Collider: Collider
+-- Screen Rant: Screen Rant
+
 
 ## Risks
 - Potential website restrictions that may prevent scraping
