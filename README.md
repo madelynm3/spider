@@ -53,6 +53,7 @@ This project will involve building a web crawler that can navigate web pages, ex
 
 - **W1:** 0
 - **W2:** 3
+- **W3:** 10
 
 ### Remaining Hours
-**117 hours remaining**
+**107 hours remaining**
