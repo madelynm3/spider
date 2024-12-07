@@ -60,13 +60,4 @@ This project will involve building a web scraper that navigates the specified we
   Prepare documentation and present the final project to stakeholders.
 
 
-## Progress
-**Total Hours:** 120
-
-- **W1:** 0
-- **W2:** 3
-- **W3:** 10
-
-### Remaining Hours
-**107 hours remaining**
 
