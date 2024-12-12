@@ -33,7 +33,7 @@ movie_data = soup.findAll('div', attrs={'class': 'lister-item mode-advanced'})
 
 for store in movie_data:
     # Movie name
-    title_element = store.find('h3', class_='h3.ipc-title__text')
+    title_element = store.find('h3', class_='ipc-title__text')
     name = title_element.text.strip() if title_element else 'N/A'
     movie_name.append(name)
 
