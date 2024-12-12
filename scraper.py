@@ -4,15 +4,16 @@ import requests
 from bs4 import BeautifulSoup
 
 # Assigning the URL
-url = 'https://www.imdb.com/search/title/?count=100&groups=top_1000&sort=user_rating'
+url = 'https://www.imdb.com/search/title/?groups=top_1000&count=100&sort=user_rating,asc'
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
 }
 response = requests.get(url, headers=headers)
 soup = BeautifulSoup(response.content, 'html.parser')
 
-print(response.status_code)  # Should be 200
-print(response.text[:1000])  # Print a snippet of the HTML
+#print(soup.prettify())
+#print(response.status_code)  # Should be 200
+#print(response.text[:1000])  # Print a snippet of the HTML
 
 
 # Creating empty lists to store data
@@ -32,7 +33,7 @@ movie_data = soup.findAll('div', attrs={'class': 'lister-item mode-advanced'})
 
 for store in movie_data:
     # Movie name
-    title_element = store.find('h3', class_='ipc-title__text')
+    title_element = store.find('h3', class_='h3.ipc-title__text')
     name = title_element.text.strip() if title_element else 'N/A'
     movie_name.append(name)
 

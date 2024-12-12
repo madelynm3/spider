@@ -4,10 +4,9 @@
 Develop a web scraper designed to extract movie reviews from various websites. This tool will enable efficient data collection for research, analysis, and decision-making, addressing the need for comprehensive insights into film criticism.
 
 ## Description
-This project will involve building a web scraper that navigates the specified websites, extracts movie review data, and stores it in formats such as CSV, JSON, or directly in a database. The project will utilize Beautiful Soup, a Python library tailored for parsing HTML and XML documents. 
+This project will involve building a web scraper that navigates the specified websites, extracts movie review data, and stores it in CSV format. The project will utilize Beautiful Soup, a Python library tailored for parsing HTML and XML documents. 
 - Key features:
   - Configurable data extraction based on user-defined parameters
-  - Support for multiple output formats, including databases like SQLite or PostgreSQL.
   - Error handling for common web scraping issues (e.g., broken links, access restrictions)
 
 ## New Concepts
@@ -24,16 +23,6 @@ This project will involve building a web scraper that navigates the specified we
 - Installation of Python and necessary libraries (requests, Beautiful Soup, etc.)
 - Access to target websites for data extraction:
   - IMDb (Internet Movie Database): IMDb
-  - Rotten Tomatoes: Rotten Tomatoes
-  - Metacritic: Metacritic
-  - Letterboxd: Letterboxd
-  - FilmAffinity: FilmAffinity
-  - The Guardian Film Section: The Guardian
-  - RogerEbert.com: Roger Ebert
-  - NPR Movies: NPR Movies
-  - Collider: Collider
-  - Screen Rant: Screen Rant
-
 
 ## Risks
 - Potential website restrictions that may prevent scraping
