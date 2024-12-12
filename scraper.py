@@ -2,24 +2,26 @@
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+import time
 
 # Assigning the URL
 url = 'https://www.imdb.com/search/title/?groups=top_1000&count=100&sort=user_rating,asc'
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.9'
 }
+
+# Making the request with a small delay to be polite
+time.sleep(1)
 response = requests.get(url, headers=headers)
+
+# Creating the soup object
 soup = BeautifulSoup(response.content, 'html.parser')
-
-#print(soup.prettify())
-#print(response.status_code)  # Should be 200
-#print(response.text[:1000])  # Print a snippet of the HTML
-
 
 # Creating empty lists to store data
 movie_name = []
 year = []
-time = []
+time_duration = []
 rating = []
 metascore = []
 votes = []
@@ -28,62 +30,61 @@ description = []
 Director = []
 Stars = []
 
-# Extracting movie data
-movie_data = soup.findAll('div', attrs={'class': 'lister-item mode-advanced'})
+# Finding all movie containers
+movie_data = soup.find_all('div', class_='ipc-metadata-list-summary-item__tc')
 
 for store in movie_data:
     # Movie name
-    title_element = store.find('h3', class_='ipc-title__text')
-    name = title_element.text.strip() if title_element else 'N/A'
+    name = store.find('h3', class_='ipc-title__text')
+    name = name.text.strip() if name else 'N/A'
     movie_name.append(name)
 
     # Year of release
-    year_of_release = store.h3.find('span', class_='lister-item-year text-muted unbold').text.replace('(', '').replace(')', '')
-    year.append(year_of_release)
+    year_element = store.find('span', class_='ipc-metadata-list-summary-item__li')
+    year_text = year_element.text.strip() if year_element else 'N/A'
+    # Extract just the year using regex if needed
+    year.append(year_text)
 
     # Runtime
-    runtime = store.p.find('span', class_='runtime')
+    runtime = store.find('span', class_='runtime')
     runtime = runtime.text.replace(' min', '') if runtime else 'N/A'
-    time.append(runtime)
+    time_duration.append(runtime)
 
     # Rating
-    rate = store.find('div', class_='inline-block ratings-imdb-rating')
-    rate = rate.text.replace('\n', '') if rate else 'N/A'
+    rate = store.find('span', class_='ipc-rating-star')
+    rate = rate['aria-label'].split()[0] if rate else 'N/A'
     rating.append(rate)
 
     # Metascore
     meta = store.find('span', class_='metascore')
     metascore.append(meta.text.strip() if meta else 'N/A')
 
-    # Votes and Gross earnings
-    value = store.find_all('span', attrs={'name': 'nv'})
-    vote = value[0].text if value else 'N/A'
-    votes.append(vote)
-    gross_val = value[1].text if len(value) > 1 else 'N/A'
-    gross.append(gross_val)
-
     # Description
-    describe = store.find_all('p', class_='text-muted')
-    description_text = describe[1].text.strip() if len(describe) > 1 else 'N/A'
-    description.append(description_text)
+    desc = store.find('div', class_='ipc-html-content-inner-div')
+    description.append(desc.text.strip() if desc else 'N/A')
 
     # Director and Stars
-    cast = store.find('p', class_='')
-    if cast:
-        cast = cast.text.strip().split('|')
-        cast = [x.strip() for x in cast]
-        cast = [cast[i].replace(j, "") for i, j in enumerate(["Director:", "Stars:"])]
-        Director.append(cast[0])
-        Stars.append([x.strip() for x in cast[1].split(',')] if len(cast) > 1 else [])
+    credit_info = store.find_all('span', class_='ipc-metadata-list-item__list-content-item')
+
+    if credit_info:
+        Director.append(credit_info[0].text if len(credit_info) > 0 else 'N/A')
+        Stars.append([star.text for star in credit_info[1:]] if len(credit_info) > 1 else [])
     else:
         Director.append('N/A')
         Stars.append([])
+
+    # Votes and Gross (these might need adjustment based on actual HTML structure)
+    vote_element = store.find('span', {'name': 'nv'})
+    votes.append(vote_element.text if vote_element else 'N/A')
+
+    gross_element = store.find('span', string=lambda text: text and '$' in text if text else False)
+    gross.append(gross_element.text if gross_element else 'N/A')
 
 # Creating a DataFrame
 movie_df = pd.DataFrame({
     'Name of movie': movie_name,
     'Year of release': year,
-    'Watchtime (min)': time,
+    'Watchtime (min)': time_duration,
     'Movie Rating': rating,
     'Metascore': metascore,
     'Votes': votes,
@@ -93,8 +94,8 @@ movie_df = pd.DataFrame({
     'Stars': Stars
 })
 
-# Saving the DataFrame to a CSV file
-movie_df.to_csv("data/reviews/u.items.csv", index=False)
-
-# Displaying the first few rows
+# Display the first few rows
 print(movie_df.head())
+
+# Save to CSV if needed
+movie_df.to_csv("data/reviews/u.items.csv", index=False)
