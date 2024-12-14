@@ -40,7 +40,7 @@ for store in movie_data:
     movie_name.append(name)
 
     # Year of release
-    year_element = store.find('span', class_='ipc-metadata-list-summary-item__li')
+    year_element = store.find('span', class_='sc-300a8231-7 eaXxft dli-title-metadata-item')
     year_text = year_element.text.strip() if year_element else 'N/A'
     # Extract just the year using regex if needed
     year.append(year_text)
@@ -51,12 +51,12 @@ for store in movie_data:
     time_duration.append(runtime)
 
     # Rating
-    rate = store.find('span', class_='ipc-rating-star')
-    rate = rate['aria-label'].split()[0] if rate else 'N/A'
-    rating.append(rate)
+    rate = store.find('span', class_='ipc-rating-star--rating')
+    #rate = rate['aria-label'].split()[0] if rate else 'N/A'
+    rating.append(rate.text.strip() if rate else 'N/A')
 
     # Metascore
-    meta = store.find('span', class_='metascore')
+    meta = store.find('span', class_='sc-b0901df4-0 bXIOoL metacritic-score-box')
     metascore.append(meta.text.strip() if meta else 'N/A')
 
     # Description
@@ -84,14 +84,14 @@ for store in movie_data:
 movie_df = pd.DataFrame({
     'Name of movie': movie_name,
     'Year of release': year,
-    'Watchtime (min)': time_duration,
+    #'Watchtime (min)': time_duration,
     'Movie Rating': rating,
     'Metascore': metascore,
-    'Votes': votes,
-    'Gross collection': gross,
+    #'Votes': votes,
+    #'Gross collection': gross,
     'Description': description,
-    'Director': Director,
-    'Stars': Stars
+    #'Director': Director,
+    #'Stars': Stars
 })
 
 # Display the first few rows
